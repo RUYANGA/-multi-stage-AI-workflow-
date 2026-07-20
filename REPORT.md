@@ -37,7 +37,7 @@ Each sub-task demands a different interaction style, making it ideal for a multi
 | Stage | Tool Type | Examples (Provider-Agnostic) |
 |-------|-----------|------------------------------|
 | Stage 1 | Chat AI | ChatGPT, Claude, Gemini |
-| Stage 2 | IDE AI | VS Code + Copilot, Cursor, JetBrains AI |
+| Stage 2 | IDE AI | VS Code + Copilot|
 | Stage 3 | CLI AI | Claude Code, Gemini CLI, opencode |
 
 **Note:** No stage depends on a specific model or vendor — only on the *shape* of the interface.
