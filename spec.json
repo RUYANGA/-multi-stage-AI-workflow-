@@ -1,0 +1,20 @@
+{
+  "feature": "email_validator",
+  "description": "Validate email addresses against a set of business rules before allowing signup.",
+  "rules": [
+    "Must contain exactly one '@' symbol",
+    "Local part (before '@') must be 1-64 characters",
+    "Domain part (after '@') must contain at least one '.'",
+    "Domain part must not start or end with '.' or '-'",
+    "Reject addresses using disposable domains: ['mailinator.com', 'tempmail.com']",
+    "Return a structured result: {is_valid: bool, reason: str|null}"
+  ],
+  "function_signature": "def validate_email(email: str) -> dict",
+  "test_cases": [
+    {"input": "user@example.com", "is_valid": true},
+    {"input": "user@@example.com", "is_valid": false},
+    {"input": "user@mailinator.com", "is_valid": false},
+    {"input": "u@x", "is_valid": false},
+    {"input": "jane.doe@my-domain.co", "is_valid": true}
+  ]
+}

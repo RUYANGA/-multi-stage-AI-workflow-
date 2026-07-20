@@ -1,0 +1,32 @@
+flowchart LR
+    A[Problem statement:\nadd validated email-signup rule] --> B
+
+    subgraph S1["STAGE 1 — Chat UX\n(e.g. ChatGPT, Claude chat, Gemini)"]
+        B[Prompt: draft a structured spec\nrules + function signature + test cases]
+        B --> C[/spec.json/]
+    end
+
+    C --> D
+
+    subgraph S2["STAGE 2 — IDE UX\n(e.g. VS Code + Copilot, Cursor, JetBrains AI)"]
+        D[Prompt: implement spec.json\nin this codebase's style]
+        D --> E[/validator.py/]
+        D --> F[/test_validator.py/]
+    end
+
+    E --> G
+    F --> G
+
+    subgraph S3["STAGE 3 — CLI UX\n(e.g. Claude Code, Gemini CLI, Aider)"]
+        G[Run: pytest, lint]
+        G --> H{Tests pass?}
+        H -- No --> D
+        H -- Yes --> I[Generate commit message\n+ open PR]
+    end
+
+    I --> J[Feature merged]
+
+    style C fill:#fef3c7,stroke:#d97706
+    style E fill:#dbeafe,stroke:#2563eb
+    style F fill:#dbeafe,stroke:#2563eb
+    style I fill:#dcfce7,stroke:#16a34a

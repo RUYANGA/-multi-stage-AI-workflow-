@@ -1,0 +1,9 @@
+feat(auth): add email_validator with rule-based checks
+
+- Implements validate_email() per spec.json (one '@', local part
+  1-64 chars, valid domain shape, disposable-domain blocklist)
+- Adds test_validator.py covering all cases from spec.json plus
+  a reason-string sanity check
+- All tests passing (2/2)
+
+Generated via chat -> IDE -> CLI workflow chain.
